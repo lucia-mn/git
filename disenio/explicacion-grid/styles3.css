@@ -1,0 +1,43 @@
+/* con min -content y max-content no hay overflow, siempre es al tamaño minimo o maximo */
+.container {
+    width: 1000px;
+    margin: 30px auto;
+    background-color: bisque;
+    display: grid;
+    grid-template-columns: max-content 1fr 1fr min-content;
+    grid-template-rows: repeat(2, 150px);
+
+}
+
+.item {
+  padding: 20px;
+  color: white;
+  font-family: sans-serif;
+  font: serif 30px;
+  background-color: orangered;
+}
+
+  .item--1 {
+    background-color: orangered;
+  }
+  .item--2 {
+    background-color: yellowgreen;
+  }
+  .item--3 {
+    background-color: blueviolet;
+  }
+  .item--4 {
+    background-color: palevioletred;
+  }
+  .item--5 {
+    background-color: royalblue;
+  }
+  .item--6 {
+    background-color: goldenrod;
+  }
+  .item--7 {
+    background-color: crimson;
+  }
+  .item--8 {
+    background-color: darkslategray;
+  }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso examen 2</title>
+</head>
+<body>
+    <h2>Repaso examen 2</h2>
+
+    <script>
+        
+        const empleados = [
+            { nombre: "Ana", salario: 1800 },
+            { nombre: "Luis", salario: 2200 },
+            { nombre: "Marta", salario: 2000 }
+        ];
+
+        // const empleadoBonus = [];
+
+        for (let i = 0; i <= (empleados.length); i++ ) {
+            let empleado = empleados[i];
+            empleado.salarioConBonus = empleado.salario * 1.1;
+            empleados.push (empleado);
+            console.log("Ana tiene un salario con bonus de " + empleados.salarioConBonus);
+        }
+        
+        
+        // for in
+        let e = 0;
+        const personas = [];
+
+        for (let x in empleados) {
+            personas[e] = empleados[x];
+            e++;
+        }
+
+        // sin push?
+        for (let propiedad in empleados [i]) {
+            empleadoBonus[i] = {};
+            empleadoBonus[i][propiedad] = empleados[i][propiedad];
+            empleadoBonus[i].salarioConBonus = bonus;
+        }
+
+        console.log("Ana tiene un salario base de " + salario + " y con bonus gana " + bonus);
+
+        // con push
+        /*empleadoBonus.push(empleados[i]);
+        empleadosBonus[i].salarioConBonus = bonus;*/
+
+
+
+        // for each
+        empleados.forEach (function (bonusEmpleado) {
+
+        const salarioConBonus = (bonusEmpleado.salario * 1.1);
+        console.log("Ana tiene un salario base de " + salario + " y con bonus gana " + salarioConBonus);
+        });
+
+
+        // map
+        const empleadosB = empleados.map(empleado => {
+            console.log("Ana tiene un salario base de " + empleado.salario + " y con bonus gana " + empleado.bonus);
+
+        });
+
+        // repetir el map y el forEach con funciones flecha
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        /* si tienes una imagen y le pones class view
+        .view {
+            width: 1wh;
+            height: 2wh;
+        }
+
+
+
+        div {
+            width: 10000px;
+            height: 400px;
+            background: red;
+            max-width: 500px;
+        } */
+
+
+        h1 + h2 { color: red }
+
+        /* Se muestran de color azul todos los enlaces que tengan un atributo "class" en el que al menos uno de sus valores sea "externo" */
+        /* a[class~= */
+        h1[data~="externo"] {color: blue;}
+
+        /* Selecciona todos los elementos de la página cuyo atributo "lang" sea igual a "en", es decir, todos los elementos en inglés  */
+        /* *[lang="en"] */
+        *[lang|="es"] {
+            color: red;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        a:after {
+            content: " (" attr(href) ") ";
+        }
+
+        a:before { content: " (" attr(href) ") "; }
+
+        P::first-letter {
+            color: green;
+            opacity: 0;
+            /* 0 "desaparece", o no se ve. 1 transparente
+            los elementos desaparecen con display: none */
+        }
+
+        ::selection {
+            color: floralwhite;
+        }
+
+        :root {
+            font-size: 22px; /* Tamaño base */
+        }
+
+        h1 {
+            font-size: 2rem; /* El doble del tamaño base: 44px */
+        }
+
+        .div {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 10px 20px 20px 40px;
+        }
+
+        .div2 {
+            background-color: rgb(0, 0, 0, 0.5); 
+            /* Notación clásica  */
+
+            background-color: rgb(0 0 0 / 50%); 
+            /* Notación moderna  */
+
+            background-color: hsl(180deg, 50%, 25%, 0.75); 
+            /* hsl = matriz, saturacion y brillo */
+            /* Notación clásica  */
+
+            background-color: hsl(180deg 50% 25% / 75%); 
+            /* Notación moderna  */
+
+            background-color: #aa44bb77;
+            background-color: #a4b7;  
+            /* Notación abreviada  */
+        }
+
+        .div3 {
+            background: #fff url(imagen.jpg) top center repeat-x;
+            
+        }
+
+    </style>
+
+    <body>
+    <h1 data="hola externo">Titulo1</h1>
+    <h2>Subtítulo</h2>
+    <a href="#">Enlace</a>
+    ...
+    <h2>Otro subtítulo</h2>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero omnis rerum sint debitis voluptatum distinctio! Voluptate quos quas adipisci quo porro? Fugiat, minus quasi. Et saepe unde aut iusto ipsa.</p>
+    ...
+    </body>
+    
+</body>
+</html>

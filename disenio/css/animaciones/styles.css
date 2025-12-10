@@ -1,0 +1,76 @@
+/* a {
+  background: #ddd;
+  color: #222;
+  padding: 8px;
+}
+
+a:hover {
+  background: #fff;
+  color: #666;
+  padding: 25px;
+  border: 1px solid #888;
+
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+} */
+
+.btn {
+    background-color: #00a0d6;
+    color: #fff;
+    border-bottom: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+
+    font: 16px arial, sans-serif;
+    /* transition: background-color 1s; */
+    /* transition: background-color 0.4s , color 0.4s ; */ /*más de una propiedad*/
+
+    /* transition: all 0.4s; */
+    /* absolute busca al padre más cercano estático, por lo que poner position: relative
+    y luego con el segundo span lo pones en absolute, mientras que subes el primero para ocultarlo y subes el segundo para
+    que se vea*/
+    position: relative; 
+
+    /* in-line-block: para poder cambiar su altura y ancho */
+    display: inline-block;
+    line-height: 3; 
+
+    /* para que suba el span (texto) y no se vea */
+    overflow: hidden;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: red;
+}
+
+span.content {
+    /* el span que es de linea lo haces de bloque, por lo que ocupa todo el padre */
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.content {
+    /* si no esta en absoluto no se puede bajar o subir, y mi padre es la a (el boton) */
+    position: absolute;
+    transition: top 1s;
+}
+
+.top {
+ top: 0px;
+}
+
+.bottom {
+ top: 100px;
+}
+
+.btn:hover .top {
+ top: -50px;
+}
+
+.btn:hover .bottom {
+ top: 0px;
+}

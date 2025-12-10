@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aviones</title>
+</head>
+
+<body>
+<h2>Aviones</h2>
+<p id="puertas"></p>
+
+<script>
+
+    // 1. a y b
+    function Avion(numVuelo, motores, flaps) {
+
+        this.numVuelo = numVuelo;
+        this.motores = motores;
+        this.flaps = flaps;
+    
+        this.despegar = function() {
+            this.motores = "encendidos";
+            this.flaps = "extendidos";
+            console.log(this.numVuelo + " despegando");
+        };
+
+        this.aterrizar = function() {
+                this.motores = "apagados"; 
+                this.flaps = "recogidos";
+                console.log(this.numVuelo + " aterrizando");
+        };
+    }
+
+    // 2
+    let aviones = [];
+
+    for (let i = 1; i <= 400; i++) {
+    aviones.push(new Avion(i, "apagados", "recogidos"));
+    }
+
+    // 3 y 4
+    Avion.prototype.puertaPilotos = "cerrada";
+
+    Avion.prototype.abrirPuerta = function() {
+        this.puertaPilotos = "abierta";
+        console.log("La puerta está " + this.puertaPilotos);
+    };
+
+    Avion.prototype.cerrarPuerta = function() {
+        this.puertaPilotos = "cerrada";
+        console.log("La puerta está " + this.puertaPilotos);
+    };
+
+    // 5
+    let informacion = aviones.map(avion => {
+    return "El vuelo es " + avion.numVuelo + " el estado de la puerta es " + avion.puertaPilotos +
+     " y el de los motores de " + avion.motores;
+    });
+
+    document.getElementById("puertas").innerHTML = informacion.join("<br>");
+
+    // 6
+    let numeroVuelo = prompt("¿Número del vuelo?: ");
+    numeroVuelo = parseInt(numeroVuelo);
+
+    if (numeroVuelo < 1 || numeroVuelo > 400) {  
+    alert ("Inserta número entre 1 y 400");
+
+    } else {
+    alert ("Tu número es: " + numeroVuelo);
+    }
+
+    // 7
+    function avionNumero(numVuelo, aviones) {
+    for (let i = 0; i < aviones.length; i++) {
+        if (aviones[i].numVuelo === numVuelo) {
+
+        return aviones[i];
+        }
+    }
+    return null;
+    }
+
+    // 8
+    function mostrarOpciones(avion) {
+
+        let mensaje = "Elige una opción: ";
+
+        if (avion.puertaPilotos === "cerrada") {
+            mensaje += "1. abrir puertas"
+
+        } else {
+            mensaje += "1. cerrar puertas"
+        }
+
+        if (avion.motores === "apagados") {
+            mensaje += "2. despegar"
+
+        } else {
+            mensaje += "2. aterrizar"
+        }
+
+        
+        let eleccion = parseInt(prompt(mensaje));
+
+        if (eleccion == 1) {
+
+            if (avion.puertaPilotos == "cerrada") {
+            avion.abrirPuerta();
+            alert("puerta abierta");
+
+            } else if (avion.puertaPilotos == "abierta") {
+                avion.cerrarPuerta();
+                alert("perta cerrada");
+            }
+
+        } else if (eleccion == 2) { 
+
+            if (avion.motores === "apagados") {
+                avion.despegar();
+                alert("despegando");
+
+            } else if (avion.motores === "encendidos") {
+                avion.aterrizar();
+                alert("aterrizando");
+            }
+        }
+    }
+
+    // 9
+    let informacion2 = aviones.map(avion => {
+    return "El vuelo es " + avion.numVuelo + " el estado de la puerta es " + avion.puertaPilotos +
+     " y el de los motores de " + avion.motores;
+    });
+
+    document.getElementById("puertas").innerHTML = informacion2.join("<br>");
+
+    // 10
+    let numero;
+
+    do {
+        numero = parseInt(prompt("Introduce otro vuelo del 1 al 400, 0 para salir: "));
+
+        if (!isNaN(numero) && (numero >= 1 && numero <= 400)) {
+
+            let esteAvion = avionNumero(numero, aviones);
+
+            mostrarOpciones(esteAvion);
+
+            let informacion3 = aviones.map(avion => {
+            return "El vuelo es " + avion.numVuelo + " el estado de la puerta es " + avion.puertaPilotos +
+            " y el de los motores de " + avion.motores;
+            });
+
+            document.getElementById("puertas").innerHTML = informacion3.join("<br>");
+       
+        } else {
+            alert ("tiene que ser un número");
+        }
+
+    } while (numero != 0);
+
+</script>
+
+</body>
+</html>

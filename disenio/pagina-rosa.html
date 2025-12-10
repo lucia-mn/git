@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Digital</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Colores ===== */
+    :root {
+      --gris: #555555;
+      --rosa-claro: #FFD6DD;
+      --rosa-fuerte: #FF4C6D;
+      --naranja: #FFA060;
+      --blanco: #FFFFFF;
+    }
+
+    /* ===== Reset básico ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--rosa-claro);
+      color: var(--gris);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== Header ===== */
+    header {
+      background-color: var(--gris);
+      color: var(--blanco);
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--naranja);
+    }
+
+    /* ===== Hero con degradado ===== */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, var(--rosa-claro), var(--naranja));
+      text-align: center;
+      color: var(--gris);
+    }
+
+    .hero h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      background-color: var(--rosa-fuerte);
+      color: var(--blanco);
+      padding: 12px 30px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: var(--naranja);
+    }
+
+    /* ===== Sección de libros ===== */
+    .books {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .book-card {
+      background-color: var(--blanco);
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .book-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+
+    .book-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .book-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      padding: 15px;
+      font-size: 1.2rem;
+      color: var(--gris);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background-color: var(--gris);
+      color: var(--blanco);
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    footer a {
+      color: var(--naranja);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Biblioteca Digital</h1>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Libros</a>
+      <a href="#">Sobre Nosotros</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Descubre tu próxima lectura</h2>
+    <p>Accede a miles de libros digitales desde cualquier lugar.</p>
+    <a href="#" class="btn">Explorar Biblioteca</a>
+  </section>
+
+  <section class="books">
+    <div class="book-card">
+      <img src="https://via.placeholder.com/250x300" alt="Libro 1">
+      <h3>Libro 1</h3>
+    </div>
+    <div class="book-card">
+      <img src="https://via.placeholder.com/250x300" alt="Libro 2">
+      <h3>Libro 2</h3>
+    </div>
+    <div class="book-card">
+      <img src="https://via.placeholder.com/250x300" alt="Libro 3">
+      <h3>Libro 3</h3>
+    </div>
+    <div class="book-card">
+      <img src="https://via.placeholder.com/250x300" alt="Libro 4">
+      <h3>Libro 4</h3>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Biblioteca Digital. Todos los derechos reservados. <a href="#">Política de Privacidad</a></p>
+  </footer>
+
+</body>
+</html>

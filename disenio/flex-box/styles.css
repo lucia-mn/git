@@ -1,0 +1,190 @@
+/* Establecemos el reseteo  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: rgb(245, 209, 7);
+  padding: 10px;
+  display: flex; /* Hemos creado un contenedor flex cuyos hijos (flex items)
+   se adaptan al padre y se colocan unos detras de otros */
+
+  /*flex-direction: row-reverse;  invertir el sentido, que hemos visto en las transparencias, en
+  que se visualizan los elementos. */
+
+  /* La propiedad flex-direction determina la orientación (Eje principal) de las cajas. Por defecto es row (fila) o column (columnas) */
+
+  flex-direction: row;
+  /* El módulo flex dispone de la propiedad justify-content que nos permite alinear */
+
+  justify-content: center;
+
+  /*
+  justify-content define cómo el navegador distribuye el espacio entre y alrededor de los items flex,
+   a lo largo del eje principal de su contenedor.
+   El alineamiento se produce luego de que las longitudes y márgenes automáticos son aplicados.
+
+   /space-between (mismo espacio entre items)
+   / space-around (El tamaño entre items son el doble de espacio que
+   entre el item y el borde)
+    / space-evenly el mismo espacio entre los items y también el borde
+    flex-end/start --> los coloca al final o al principio */
+
+  align-items: center; 
+  height: 1000px;
+  /* Para alinear los elementos contenidos en el contenedor flex en el eje cruzado (eje y)*/
+
+  /* Como afectaría el hecho de cambiar el flex-direction a columns.
+ Lo que pasaría es que cambiamos el eje principal.
+ Para comprobarlo, cambiamos a  height: 3000px; y vamos cambiando las propiedades de dirección
+ de alineamiento y justificación.
+*/
+}
+
+.item {
+  background-color: #f1425d;
+  /* margin: 30px; */
+  color: #fff;
+  font-size: 40px;
+  padding: 50px;
+}
+
+ /* Ahora vamos a ver como se comporta el alineamiento con diferentes tamaños.
+  Para ello vamos a crear una clase diferente para cada uno de los items.
+  Como vemos, al tener la propiedad strech, si  cambiamos el alto de uno todos los demás se adaptan al tamaño del otro.
+  Baseline, hace referencia a la alineación respecto al renglón de las palabras.
+  */
+  .it2 {
+  height: 200px;
+}
+
+.it4 {
+  /*  font-size: 80px;  Esto lo cambiamos para baseline
+   */
+
+  /* Si queremos sobrescribir la propiedad alig-item para cada uno de ellos
+   podemos hacerlo con align-self. tambien esta con baseline*/
+  align-self: stretch;
+  order: -1;
+  /* Podemos cambiar el orden de aparición , todos los elementos
+  tiene orden 0. flex lo ordena de menor a mayor, manteniendo el orden   de aparición de los elementos con el mismo valor en orden */
+}
+
+.it3 {
+  order: 1;
+}
+
+
+
+.container2 {
+  background-color: rgb(82, 245, 7);
+  padding: 10px;
+  display: flex;
+  width: 1500px;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.item2 {
+  background-color: #f1425d;
+  margin: 30px;
+  color: #fff;
+  font-size: 40px;
+  padding: 50px;
+  flex-grow: 1;
+  /* Lo que estamos aplicando es que cada uno crezca lo  que pueda dividiendose el espacio del padre 
+   El valor por defecto es 0*/
+}
+
+.t3 {
+    order: 1;
+}
+
+.t1 {
+    flex-grow: 2; 
+    /*el elemento crece el doble que los demás*/
+}
+
+
+
+.container3 {
+  background-color: rgb(71, 7, 245);
+  /* width: 170px; */
+  width: 300px;
+  display: flex;
+  /* No tiene un ancho determinado*/
+  flex-direction: row;
+}
+
+.item3 {
+  color: #fff;
+  font-size: 40px;
+}
+
+.b {
+    /* tamaño minimo, 3 veces respecto a los otros (grow), 
+    tamaño minimo 1, que decrece (shrink)
+    tamaño flex-basis(tamaño minimo que tiene que tener): 300px del padre (el container) entre los dos, entre b y c*/
+  flex: 3 1 100px;
+  background-color: #f142b7;
+}
+
+.c {
+  flex: 1 2 100px;
+  background-color: #f14242;
+}
+
+
+
+.container4 {
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  width: 300px;
+  flex-wrap: nowrap;
+  /* al ser las cajas de 150, pero el contenedor de 300. cuando pones nowrap
+  no hace qu ela tercera caja baje abajo, sino qu ese ajustan el tamaño a los 300px*/
+  /* ej: cards de libros*/
+  border: 1px solid;
+}
+
+.roja {
+  background-color: red;
+  width: 150px;
+}
+
+.amarilla {
+  background-color: yellow;
+  width: 150px;
+}
+
+.azul {
+  background-color: blue;
+  width: 150px;
+}
+
+
+
+.container5 {
+  background: hsl(0, 0%, 95%);
+  display: flex;
+  flex-wrap: wrap;
+  height: 300px;
+  border: 1px solid black;
+  padding: 0;
+  align-content: space-between;
+  /*espaciohacia abajo ya que le hemos dado un height (eje y) */
+}
+
+.item5 {
+  background-color: lightblue;
+  height: 46px;
+  margin: 2px;
+  width: 30%;
+}
+
+.i52 {
+  height: 98px;
+}

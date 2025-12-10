@@ -1,0 +1,158 @@
+/* 
+
+EXP. REG
+
+? -> 0 o una vez
++ -> 1 o infinito
+[0, infinito] 
+[A-Z a-z 0-9]+@[A-Z a-z]{3}\.[A-Z a-z]{2}
+^= -> empieza por
+$= -> termina por
+*= -> acaba por
+
+*/
+
+@import url("./css/menu.css");
+
+@import url("mobile.css") screen and (max-width: 640px);
+/* para que al imprimir el css no sea el del navegador yq ue sea el tuyo propio */
+@import url("print.css") print;
+
+@import url("flex-fallback.css") supports(not (display: grid));
+@supports (display: grid) {
+  /* ... */
+}
+
+
+
+h1 + h2 {
+    color: blue;
+}
+
+/* todos los h2 que sean hermanos y que esten a la misma altura, el h2 dentro del div no cuenta */
+h1 ~ h2 {
+    color: green;
+}
+
+
+p[name*="mi"] {
+  font-size: 20px;
+  color: red;
+}
+
+p[name^="mi"] {
+  font-size: 20px;
+  color: orange;
+}
+
+p[name$="mi"] {
+  font-size: 20px;
+  color: aqua;
+}
+
+
+
+/* LISTA */
+li:first-child {
+    font-weight: bold;
+    color: green;
+}
+
+
+/*
+even coge los pares
+odd los impares
+n+3 -> a partir del tercer hijo
+3n+1 -> cada tres empezando por el primero 
+*/
+
+li:nth-child(even) {
+  font-weight: bold;
+  background-color: gold;
+}
+
+li:last-of-type {
+  background-color: gold;
+}
+
+/* P(arrafo) 1 */
+strong:nth-of-type(2) {
+background-color: gold;
+}
+
+/* P(arrafo) 2 */
+strong:only-child {
+background-color: rgb(37, 214, 117);
+}
+
+
+li:empty { 
+    background-color: rgb(119, 24, 145); 
+}
+
+
+/* P(arrafo) 3 */
+/* los p que contegan/sean u */
+p :not(u){
+  background-color: gold;
+}
+
+/* todos aquellos p que no tengan/sean u 
+aqui se subralla todo porque ninguno es u
+p:not(u){
+  background-color: gold;
+} */
+
+
+
+/* GRADIENTES */
+.element {
+  /* Básico, con colores con distancias equilibradas */
+  background: linear-gradient(to right, black, blue, gold, green, red);
+
+  /* Equivalente al anterior */
+  background: linear-gradient(
+    to right,
+    black 0%,
+    /* Color 100% negro en el punto 0% y comienza a cambiar */ blue 25%,
+    /* Color 100% azul en el punto 25% y comienza a cambiar */ gold 50%,
+    /* Color 100% dorado en el punto 50% y comienza a cambiar */ green 75%,
+    /* Color 100% verde en el punto 75% y comienza a cambiar */ red 100%
+      /* Color 100% rojo en el punto 100% */
+  );
+}
+
+div {
+  width: 400px;
+  height: 400px;
+  border: 1px solid black;
+  /* Modalidad básica */
+  background: radial-gradient(gold, red, black);
+
+  /* Gradiente elíptico */
+  background: radial-gradient(ellipse, gold 50%, red 55%, black 75%);
+
+  /* Gradiente circular */
+  background: radial-gradient(circle 200px, gold 50%, red 55%, black 75%);
+
+  /* Gradiente circular con posición */
+  background: radial-gradient(
+    circle 400px at left,
+    gold 50%,
+    red 55%,
+    black 75%
+  );
+}
+
+
+/* SVG FONT EXTENSION: SE ADAPTAN, EL RESTO NO: .TTF, .OTF 
+PRIMERO EN LOCAL Y LUEGO EN WOFF Y WOFF2
+FONT-STRETCH 
+ES UNA CAPA QUE SE LE DA A LA IMGEN, NO SE APLICA SORE LA IMAGEN EN SÍ
+filter en imagenes -> cambia el color poniedole tu un filtro, como una capa de opacidad 
+puedes saturar y desaturar, o darle más o menos contraste, cambiar la opacidad, el brillo, podemos 
+desenfocarlo con un blur */
+
+/* HACER LAS ANIMACINES CON CSS */
+
+/* hacer una estructura con clases para importar las diferentes clases */

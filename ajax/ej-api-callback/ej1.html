@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    
+</body>
+</html>
+
+    <h2>The XMLHttpRequest Object</h2>
+    <button type="button" onclick="loadDoc()">Request data from API</button>
+
+    <p id="demo"></p>
+    
+    <script>
+    function loadDoc() {
+        const xhttp = new XMLHttpRequest();
+
+        xhttp.onload = function() {
+            // primero parsear la respuesta de json a formajo js
+            const respuestaJs = JSON.parse(this.responseText);
+
+            // recorremos el array 
+            respuestaJs.forEach(objeto => {
+                if (objeto.username == "Kamren") {
+                    console.log(objeto);
+                }
+            });
+
+            /*
+            function mostrarDatos(data) {
+                let datos = JSON.parse(data);
+                for (let i in datos) {
+                    if (datos[i].username == "Kamren") console.log(datos[i]);
+                }
+            }
+            */
+
+            // document.getElementById("demo").innerHTML = this.responseText;
+        }
+
+        xhttp.open("GET", "https://jsonplaceholder.typicode.com/users");
+        // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send();
+    }
+
+    </script>
+
+<html>
+<body>

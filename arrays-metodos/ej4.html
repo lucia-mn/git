@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Ej 4 métodos - arrays</h2>
+
+    <p id="demo"></p>
+
+    <script>
+        // filter solo devuelve un booleano, true o false
+
+        const personas = [
+            { nombre: "Lucía", edad: 65, ojos: "azul" },
+            { nombre: "Carlos", edad: 30, ojos: "marrón" },
+            { nombre: "Ana", edad: 72, ojos: "azul" },
+            { nombre: "Drácula", edad: 298, ojos: "rojos" }
+        ];
+
+        const iamblue = personas.filter(jubilados);
+
+        function jubilados(edad, ojos) {
+            return (edad > 65) && (ojos == "azul");
+        };
+
+        // otra forma de hacerlo con filter y las funciones flecha
+        /*const iamblue = personas.filter(persona=> {
+            if ((persona.edad > 65) && (persona.ojos == "azul")) return true;
+            else return false;
+
+        });
+        */
+
+        document.getElementById("demo").innerHTML = iamblue;
+    </script>
+
+</body>
+</html>

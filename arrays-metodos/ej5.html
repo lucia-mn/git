@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Ej 5 métodos - arrays</h2>
+
+    <p id="demo"></p>
+
+    <script>
+        // con map se devuelve lo que queramos
+        // por cada iteracion se le pasa un valor del array de la funcion que hemos creado
+        // el resultado se guarda en un nuevo array
+
+        const personas = [
+            { nombre: "Lucía", edad: 25 },
+            { nombre: "Carlos", edad: 30 },
+            { nombre: "Ana", edad: 22 }
+        ];
+
+        console.log(personas);
+
+        const nombresMayus = personas.map(mayus);
+
+        function mayus(persona) {
+            return persona.nombre.toUpperCase();
+        };
+
+
+        // con funcion flecha
+        // funciones que se pasan por parámetro = NORMAS
+        /*
+        const nombresMayus = personas.map(persona => persona.nombre.toUpperCase());
+        */
+
+        console.log(nombresMayus);
+    </script>
+
+</body>
+</html>
+
+// podemos guadrar objetos en una variable aunque es mejor como constante
+// un objeto es una colección de valores con nombre
+
+// cómo definir un método (funcion) en un objeto: darle un nombre 
+// y asignarle un valor,siendo el valor la definicion de una funcion a ejecutar
+
+// con new defines un nuevo bjeto, no hay que crealos con la manera "literal"
+// para crear objetos se hace con constructores

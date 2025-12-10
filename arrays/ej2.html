@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Ej 2 arrays</h2>
+    <p id="numero"></p>
+
+    <script>
+   
+        function pideYComprueba() {
+        const numeros = [];
+        let valor;
+
+        do {
+            valor = prompt("Inserta un número o x para parar: ");
+
+            if (valor !== "x") {
+            let num = parseInt(valor);
+
+            if (!isNaN(num)) {
+                numeros.push(num);
+
+            } else {
+                alert("error");
+            }
+            }
+            
+        } while (valor !== "x");
+
+        return numeros;
+        }
+
+        function porlaMitad(a) {
+            return a.map(function(value) {
+                return value / 2;
+            });
+        }
+
+        const numeros = pideYComprueba();
+        console.log("los números son: ", numeros);
+
+        const numerosMitad = porlaMitad(numeros);
+        console.log(numerosMitad);
+
+        document.getElementById("resultado").innerHTML = numerosMitad + (" ");
+
+    </script>
+
+</body>
+</html>

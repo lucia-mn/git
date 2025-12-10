@@ -1,0 +1,36 @@
+<html>
+<body>
+
+    <h2>Ejercicios obligatorios - ejercicio 5</h2>
+    <p id="bebida"></p>
+
+    <script>
+
+        let carta = prompt("Elige: pescado, carne o verduras")
+        let bebida = " ";
+
+        switch(carta) {
+
+            case "pescado":
+                bebida = "vino blanco";
+                break;
+
+            case "carne":
+                bebida = "vino tinto";
+                break;
+
+            case "verduras":
+                bebida = "agua";
+                break;
+
+            default:
+                bebida = "Escriba carne, pescado o verdura";
+        }
+
+        //console.log(bebida);
+        document.getElementById("bebida").innerHTML = bebida;
+
+    </script>
+
+</body>
+</html>

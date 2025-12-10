@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>Ej 2 métodos - arrays</h2>
+    <p>De mayor a menor por edad: </p>
+
+    <p id="demo"></p>
+
+    <script>
+        // si devuelve positivo, intercambia valores
+        // si devuleve negativo, se quedan igual
+        // si es 0, los dos números son iguales
+
+        // points.sort(function(a, b){return a - b});
+        // a y b son el primer y el segundo objeto del array, no los números
+        // para hacerlo de menor a mayor sería b - a
+        // AQUI EL PRIMER Y EL segundo objeto son cada persona, por lo que
+        // habrá que hacer objeto.edad
+
+        const personas = [
+            { nombre: "Lucía", edad: 65, ojos: "azul" },
+            { nombre: "Carlos", edad: 30, ojos: "marrón" },
+            { nombre: "Ana", edad: 72, ojos: "azul" },
+            { nombre: "Drácula", edad: 298, ojos: "rojos" }
+        ];
+
+        console.log(personas);
+
+
+        personas.sort(function(a, b){return a.edad - b.edad});
+
+        console.log(personas);
+    </script>
+
+</body>
+</html>
+

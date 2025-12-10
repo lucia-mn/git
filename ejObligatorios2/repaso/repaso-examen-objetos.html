@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso examen objetos</title>
+</head>
+<body>
+    <script>
+        
+    function Empleado (nombre, departameno, salario, aniosExp) {
+        this.nombre = nombre;
+        this.departamento = departameno;
+        this.salario = salario;
+        this.aniosExp = aniosExp;
+    }
+
+    Empleado.prototype.descripcion = function () {
+        return `${this.nombre} trabaja en ${this.departamento} y tiene ${this.aniosExp} de experiencia`;
+    };
+
+    Empleado.prototype.nivelProfesinal = function() {
+        if (this.aniosExp < 3) {
+            return "junior";
+
+        } else if (this.aniosExp > 7) {
+            return "senior";
+
+        } else {
+            return "intermedio";
+        }
+    };
+
+    Empleado.prototype.ajustarSalario = function(porcentaje) {
+        this.salario = salario * (1 + porcentaje);
+        // return `${porcentaje}`;
+    };
+
+    const empleado1 = new Empleado ("Marta", "Economia", 1800, 5, 8);
+
+    console.log(empleado1.descripcion());
+    console.log("Nivel: " + empleado1.nivelProfesinal());
+
+
+    </script>
+    
+</body>
+</html>

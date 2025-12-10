@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Planeta Azul</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <header>
+    <img src="img/planeta.jpg" alt="Planeta">
+    <h1>Planeta Azul</h1>
+  </header>
+
+  <nav>
+    <ul id="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="#">Reportajes</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Formulario de Contacto</h2>
+    <form action="#" method="post">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" maxlength="30"
+             pattern="[A-Za-z0-9 ]+" required autofocus>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad" min="18" max="99" placeholder="Tu edad" required>
+
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono" required>
+
+      <label for="consulta">Consulta:</label>
+      <textarea id="consulta" name="consulta" placeholder="Escribe aquí tu consulta..." required></textarea>
+
+      <label>
+        <input type="checkbox" name="privacidad" required>
+        Acepto la política de privacidad y cookies
+      </label>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>Sitio creado por Lucía &copy; | 2015</p> 
+  </footer>
+</body>
+</html>
