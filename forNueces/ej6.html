@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+    <html>
+        <body>
+
+            <p id="demo"></p>
+
+            <script>
+                const cars = ["BMW", "Volvo", "Mini"];
+                let text = "";
+                for (let x in cars) {
+                text += x + " "+ cars[x] + " " + cars[x+1] +"<br>";
+                }
+
+                document.getElementById("demo").innerHTML = text;
+
+                // sale undefined
+                // el cero es una cadena de caracteres, ya que concatena, intentas acceder al 
+                // índice 01, no x+1; la x no devuelve número, DEVUELVE CAD. DE CARACTERES
+                // for in, devuelve claves que son cadenas de caracteres
+            </script>
+        </body>
+    </html>

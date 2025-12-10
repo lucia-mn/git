@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla</title>
+</head>
+<body>
+
+    <table style="border-collapse: collapse; width: 100%; text-align: center; border: solid #000;">
+        <thead>
+            <tr style="background-color: #f2f2f2;">
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miércoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+            <th>Sábado</th>
+            <th>Domingo</th>
+            </tr>
+        </thead>
+        
+        <tbody style="border-collapse: collapse; width: 60%; text-align: center; border: solid #000;">
+            <tr>
+            <td></td>  <!-- 1 de octubre cae en miércoles -->
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            </tr>
+            <tr>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            </tr>
+            <tr>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            </tr>
+            <tr>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            </tr>
+            <tr>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td></td>
+            <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script>
+
+        //const tabla = document.getElementsByTagName("tbody");
+        const tabla = document.getElementsByTagName("table");
+
+        const miTabla = tabla[0];
+        // innerHTML al final es una cad. de caracteres
+        // innerHTML, pasa al hijo del nodo en el que estamos y accede a su nodvalue
+        miTabla.innerHTML += `<tr>
+                                <td>Nuveo dato</td>
+                                <td>Nuveo dato</td>
+                                <td>Nuveo dato</td>
+                            </tr>`;
+
+         
+        // hacen lo mismo, añaden un nuevo td a la tabla
+        const td = document.createElement("td");
+        const node = document.createTextNode("Nuevo dato2.1");
+        td.appendChild(node);
+
+        const td2 = document.createElement("td");
+        const node2 = document.createTextNode("Nuevo dato2.2");
+        td2.appendChild(node2);
+
+        const td3 = document.createElement("td");
+        const node3 = document.createTextNode("Nuevo dato2.3");
+        td3.appendChild(node3);
+
+        const tr = document.createElement("tr");
+        tr.appendChild(td);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+
+        //const table = document.createElement("table");
+        miTabla.appendChild(tr);
+
+        document.body.appendChild(miTabla);
+
+
+
+
+
+        // con un for
+        for (let i = 0; i < 3; i++) {
+
+            const td = document.createElement("td");
+            const node = document.createTextNode("Nuevo dato2.1");
+            td.appendChild(node);
+
+            // const tr = document.createElement("tr");
+            tr.appendChild("td");
+        }
+
+        miTabla.appendChild(tr);
+
+    </script>
+ 
+</body>
+</html>
+

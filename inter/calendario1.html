@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+</head>
+<body>
+
+    <script>
+
+        // prompt usuario
+        let anio = prompt("Introduce un año: ");
+        let mes = prompt("Introduce un mes (0 - 11): ");
+
+        // mes
+        const diaUnoMes = new Date(anio, mes, 1); 
+        const ultimoDiaMes = new Date(anio, mes + 1, 0);
+        const diasMes = ultimoDiaMes.getDate();
+
+        const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+        // dia semana
+        //el 0 es domingo
+        let diaUnoSem = diaUnoMes.getDay();
+        if (diaUnoSem === 0) diaUnoSem = 7;
+
+        const dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+
+
+        // tabla
+        const tabla = document.createElement("table");
+
+        
+        // encabezado
+        const caption = document.createElement("caption");
+        caption.textContent = meses[mes] + anio;
+        tabla.appendChild(caption);
+        
+
+        // dias semana
+        const diasSem = document.createElement("thead");
+        const filaDiasSem = document.createElement("tr");
+
+        dias.forEach(dia => {
+            const th = document.createElement("th");
+            th.textContent = dia;
+            filaDiasSem.appendChild(th);
+        });
+
+        diasSem.appendChild(filaDiasSem);
+        tabla.appendChild(diasSem);
+
+
+        // cuerpo
+        const tbody = document.createElement("tbody");
+
+        let fila = document.createElement("tr");
+        let celda;
+        let contadorDia = 1;
+
+        // === Primera fila (posiciones vacías antes del día 1) ===
+        for (let i = 1; i < diaUnoSem; i++) {
+            celda = document.createElement("td");
+            celda.textContent = ""; 
+            fila.appendChild(celda);
+        }
+
+        // === Rellenar los días del mes ===
+        for (let i = diaUnoSem; i <= 7; i++) {
+            celda = document.createElement("td");
+            celda.textContent = contadorDia++;
+            fila.appendChild(celda);
+        }
+
+        tbody.appendChild(fila);
+
+        // === Rellenar las filas restantes ===
+        while (contadorDia <= diasMes) {
+            fila = document.createElement("tr");
+            for (let i = 1; i <= 7; i++) {
+            celda = document.createElement("td");
+            if (contadorDia <= diasMes) {
+                celda.textContent = contadorDia++;
+            } else {
+                celda.textContent = "";
+            }
+            fila.appendChild(celda);
+            }
+            tbody.appendChild(fila);
+        }
+
+        
+        tabla.appendChild(tbody);
+        document.body.appendChild(tabla);
+       
+    </script>
+    
+</body>
+</html>

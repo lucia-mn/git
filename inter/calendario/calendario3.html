@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- <script src="delegacion_de_eventos.js"></script> -->
+    <title>Calendario</title>
+</head>
+
+<body>
+
+    <div class="flechas">
+        <button id="mesAntes">Mes anterior</button>
+        <select id="elegirMes"></select>
+        <select id="elegirAnio"></select>
+        <button id="mesDespues">Mes siguiente</button>
+    </div>
+
+    <table id="tabla">
+        
+        <thead class="encabezado">
+            <tr>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+                <th>Sábado</th>
+                <th>Domingo</th>
+            </tr>
+        </thead>
+        
+        <tbody id="body">
+            
+        </tbody>
+    </table>
+
+    <script>
+        // let anio = parseInt(prompt("Introduce un año: "));
+        // let mes = parseInt(prompt("Introduce un mes (0 - 11): "));
+        let diaSeleccionado = null;
+        let fecha = new Date();
+        let mes = fecha.getMonth();
+        let anio = fecha.getFullYear();
+
+        const elegirMes = document.getElementById("elegirMes"); 
+        const elegirAnio = document.getElementById("elegirAnio");
+        const mesAntes = document.getElementById("mesAntes"); 
+        const mesDespues = document.getElementById("mesDespues");
+        const cuerpo = document.getElementById("body");
+
+        // mes
+        const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
+        "Octubre", "Noviembre", "Diciembre"];
+
+        // semana 
+        const diasSemana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+
+        // combo
+        const anios = [];
+        for (let i = 2025; i <= 2050; i++) {
+            anios.push(i);
+        }
+
+        meses.forEach((m, i) => {
+            const option = document.createElement("option");
+            option.value = i;
+            option.text = m;
+            elegirMes.appendChild(option);
+        });
+
+        anios.forEach(a => {
+            const option = document.createElement("option");
+            option.value = a;
+            option.text = a;
+            elegirAnio.appendChild(option);
+        });
+
+        elegirMes.value = mes;
+        elegirAnio.value = anio;
+
+
+        // calendario 2 
+        function calendario2(){
+
+            const diaUnoMes = new Date(anio, mes, 1);
+            const ultimoDiaMes = new Date(anio, mes + 1, 0);
+            const diasEnUnMes = ultimoDiaMes.getDate();
+            let diaUnoSemana = diaUnoMes.getDay();
+
+            cuerpo.innerHTML = "";
+            let tr = document.createElement("tr");
+
+            // filas delante
+            for (let i = 1; i < diaUnoSemana; i++) {
+                const td = document.createElement("td");
+                td.textContent = " ";
+                tr.appendChild(td);
+            }
+
+            let posicionSemana = diaUnoSemana - 1;
+
+            // celdas días del mes
+            for (let dia = 1; dia <= diasEnUnMes; dia++) {
+                const td = document.createElement("td"); 
+                td.textContent = dia; 
+                td.dataset.dia = dia; 
+                tr.appendChild(td); 
+
+                posicionSemana++; 
+
+                if (posicionSemana === 7) { 
+                    cuerpo.appendChild(tr); 
+                    tr = document.createElement("tr"); 
+                    posicionSemana = 0; 
+                }
+            }
+
+
+            // filas detrás
+            if(tr.children.length>0) cuerpo.appendChild(tr);
+
+
+            // día seleccionado 
+            if(diaSeleccionado && diaSeleccionado.mes===mes && diaSeleccionado.anio===anio){
+
+                let celdas = cuerpo.querySelectorAll("td");
+                for (let i = 0; i < celdas.length; i++) {
+                    if (parseInt(celdas[i].textContent) === diaSeleccionado.dia) {
+                        celdas[i].classList.add("seleccion");
+                    }
+                }
+            }
+        }
+
+        // eventos
+        cuerpo.addEventListener("click", function(e) {
+
+            if (e.target.tagName === "TD") {
+                let diaPrev = cuerpo.querySelector("td.seleccion");
+                if (diaPrev !== null) {
+                    diaPrev.classList.remove("seleccion");
+                }
+
+                e.target.classList.add("seleccion");
+                diaSeleccionado = parseInt(e.target.textContent);
+            }
+        });
+
+        // combos
+        mesAntes.addEventListener("click", function() {
+            mes--;
+            if (mes < 0) {
+                mes = 11;
+                anio--;
+                elegirAnio.value = anio;
+            }
+            elegirMes.value = mes;
+            calendario2();
+        });
+
+        mesDespues.addEventListener("click", function() {
+            mes++;
+            if (mes > 11) {
+                mes = 0;
+                anio++;
+                elegirAnio.value = anio;
+            }
+            elegirMes.value = mes;
+            calendario2();
+        });
+
+
+        elegirMes.addEventListener("change", function() {
+            mes = parseInt(this.value);
+            calendario2();
+        });
+
+        elegirAnio.addEventListener("change", function() {
+            anio = parseInt(this.value);
+            calendario2();
+        });
+
+        calendario2();
+
+    </script>
+  
+</body>
+</html>

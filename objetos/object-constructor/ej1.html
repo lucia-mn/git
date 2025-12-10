@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Ej 1 - lucia</h2>
+    <p id = "demo"></p>
+
+    <script>
+
+        function Persona (firstName, lastName, age, eyecolor, nationality) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.eyecolor = eyecolor;
+            this.nationality = nationality;
+
+            // escribir la definicion de la funcion, del metodo 
+            this.fullName = function() {
+                return this.firstName + " " + this.lastName;
+            };
+        }
+
+        // con new devuelves un nuevo objeto, al que se le asigna una variable constante (miPadre)
+        const miPadre = new Persona("pepe", "sanchez", 52, "azul", "española");
+        const miMadre = new Persona("maria", "torres", 50, "marron", "española");
+        const miHijo = new Persona("jose", "sanchez", 25, "marron", "española");
+
+        alert(miHijo.fullName());
+    </script>
+
+    
+</body>
+</html>

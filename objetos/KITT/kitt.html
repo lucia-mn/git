@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>KITT</h2>
+    <div id="mostrar"></div>
+    <div id="mostrar2"></div>
+
+    <script>
+
+        function Coche(repuesto, marca, combustible, puertas = 3, ruedas = 4) {
+            this.puertas = puertas;
+            this.ruedas = ruedas;
+            this.repuesto = repuesto;
+            this.marca = marca;
+            this.combustible = combustible;
+        }
+
+        // 2
+        const miCoche = new Coche (true, "Mercedes", "gasolina", 4, 4);
+        const KITT = new Coche (true, "Toyota", "gasolina", 4, 4);
+
+        
+        // for of array
+        // for in objetos, aunq tambien se puede recorrer in array
+        let i = 0;
+        const valores1 = [];
+        
+        for (let x in miCoche) {
+            valores1[i] = miCoche[x];
+            i++;
+        }
+
+        /*for (const key in miCoche) {
+            valores1.push(miCoche[key]);
+        }*/
+
+        let e = 0;
+        const valores2 = [];
+
+        for (let x in KITT) {
+            valores2[e] = KITT[x];
+            e++;
+        }
+
+
+    // 5
+    document.getElementById("mostrar").innerHTML = "coche 1" + valores1.join(", ");
+    document.getElementById("mostrar2").innerHTML = "coche 2: " + valores2.join(", ");
+
+    // 6 - 9
+    miCoche.color = "negro";
+    alert("El color de 1 es: " + miCoche.color);
+
+    alert("El color de 2 es: " + KITT.color);
+
+    Coche.prototype.color = "gris";
+    
+    // 10 - 12
+    alert("El color de 1 es: " + miCoche.color);
+    alert("El color de 2 es: " + KITT.color);
+
+    KITT.pintar = function(nuevoColor) {
+
+      this.color = nuevoColor;
+    };
+
+    // 13 y 14
+    // alert("El color es: " + miCoche.color);
+    alert("El color de 1 es: " + miCoche.color);
+    alert("El color de 2 es: " + KITT.color);
+
+    // 15 y 16
+    KITT.pintar("morado");
+    miCoche.pintar("fresa");
+
+    // 17 - 21
+    Coche.prototype.pintar = function(nuevoColor) {
+        
+      this.color = nuevoColor;
+    };
+
+    KITT.pintar("amarillo");
+    miCoche.pintar("fresa");
+
+    alert("Color de 1: " + miCoche.color);
+    alert("Color de 2: " + KITT.color);
+
+    // 22 - 24
+    /*
+    Object.defineProperty(KITT, "setMarca", {
+      set: function(marca) {
+        this.marca = marca;
+      }
+    });
+
+    Object.defineProperty(Coche.prototype, "getTotal", {
+      get: function() {
+        return (
+        this.puertas + this.ruedas);
+      }
+    });
+    */
+
+    const laguagua = new Coche (true, "Mercedes", "gasolina", 4, 4);
+    
+    // 25 - 30
+    alert("El color de 1 es: " + miCoche.color);
+    alert("El color de 2 es: " + KITT.color);
+    alert("El color de 3 es: " + laguagua.color);
+    alert("El total de 1 es: " + miCoche.getTotal);
+    alert("El total de 2 es: " + KITT.getTotal);
+    alert("El total de 3 es: " + laguagua.getTotal);
+
+    // 31 y 32
+    let f = 0;
+    const valores3 = [];
+
+    for (let x in laguagua) {
+        valores3[f] = KITT[x];
+        e++;
+    }
+
+    document.getElementById("mostrar3").innerHTML = "laguagua: " + valores3.join(", ");
+
+    // 33 - 35
+    /*
+    let txt = " ";
+    for (let prop in KITT) {
+
+        txt += prop;
+    }
+
+    let txt2 = " ";
+    for (let nomProp in KITT) {
+
+      if (prop != "pintar") 
+      txt2 += KITT[nomProp];
+    }
+
+    alert(txt2);
+    */
+
+    // todos los métodos de un objeto se definen en el prototipo
+    
+    </script>
+    
+</body>
+</html>

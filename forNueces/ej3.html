@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+    <html>
+        <body>
+        <p id="demo"></p>
+
+        <script>
+            const person = {fname:"John", lname:"Doe", age:25};
+            let txt = "";
+            for (let x of person) {
+            txt += x + " ";
+            }
+
+            document.getElementById("demo").innerHTML = txt;
+
+            // cuando llega al for of e intenta acaceder al valor de person, me sal error
+            // el objeto person no es iterble (no hay un orden definido entre sus propiedades)
+        </script>
+        </body>
+    </html>
+    

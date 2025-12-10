@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Calendario</title>
+</head>
+
+<body>
+
+    <table id="tabla">
+        
+        <thead class="encabezado">
+            <tr>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+                <th>Sábado</th>
+                <th>Domingo</th>
+            </tr>
+        </thead>
+        
+        <tbody id="body">
+            
+        </tbody>
+
+    </table>
+
+    <script>
+        let anio = parseInt(prompt("Introduce un año: "));
+        let mes = parseInt(prompt("Introduce un mes (0 - 11): "));
+
+        // mes
+        const diaUnoMes = new Date(anio, mes, 1);
+        const ultimoDiaMes = new Date(anio, mes + 1, 0);
+        const diasEnUnMes = ultimoDiaMes.getDate();
+
+        const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
+        "Octubre", "Noviembre", "Diciembre"];
+
+        // semana 
+        let diaUnoSemana = diaUnoMes.getDay();
+        const diasSemana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+
+
+
+        // tabla
+        const tabla = document.getElementById("tabla");
+        document.body.appendChild(tabla);
+
+        // caption
+        const caption = document.createElement("caption");
+        caption.innerHTML = meses[mes] + " " + anio;
+        tabla.appendChild(caption);
+
+        // td y tr
+        /*
+        const td = document.createElement("td");
+        const tr = document.createElement("tr");
+        tr.appendChild(td);
+
+        tabla.appendChild(tr);
+        */
+
+        const cuerpo = document.getElementById("body"); 
+        let tr = document.createElement("tr");
+
+
+        // filas delante
+        let diaInicio = diaUnoSemana;
+        for (let i = 1; i < diaInicio; i++) {
+            const td = document.createElement("td");
+            td.textContent = " "; 
+            tr.appendChild(td);
+        }
+
+        let posicionSemana = diaInicio - 1;
+        // celdas dias mes
+        for (let dia = 1; dia <= diasEnUnMes; dia++) {
+            const td = document.createElement("td");
+            td.textContent = dia;
+            tr.appendChild(td);
+            posicionSemana++;
+
+            if (posicionSemana === 7) {
+                cuerpo.appendChild(tr);
+                tr = document.createElement("tr");
+                posicionSemana = 0;
+            }
+        }
+
+
+        // filas detras
+        if (tr.children.length > 0) {
+            cuerpo.appendChild(tr);
+        }
+
+
+        // cuerpo.appendChild(tr);
+        // tabla.appendChild(cuerpo);
+    </script>
+  
+</body>
+</html>

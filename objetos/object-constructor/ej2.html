@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Ej 2 - lucia</h2>
+    <p id = "demo"></p>
+
+    <script>
+
+        function Persona (firstName, lastName, age, eyecolor, nationality) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.eyecolor = eyecolor;
+            this.nationality = nationality;
+
+            // escribir la definición de la función, del método 
+            this.fullName = function() {
+                return this.firstName + " " + this.lastName;
+            };
+        }
+
+        // con new devuelves un nuevo objeto, al que se le asigna una variable constante (miPadre)
+        const miPadre = new Persona("pepe", "sanchez", 52, "azul", "española");
+        const miMadre = new Persona("maria", "torres", 50, "marron", "española");
+        const miHijo = new Persona("jose", "sanchez", 25, "marron", "española");
+
+        console.log (miHijo.fullName());
+
+
+        // new va a la funcion constructora y busca Person.prototype
+        // el prototype guarda el prototipo de los objetos, hace una copia y genera padre, madre, hijo...
+        // copia el prototipo de los objetos generados con la función constructora !!!
+
+        // el prototipo de los objetos esta en la función constructora
+        Person.prototype.estatura = 170;
+        const miAbuelo = new Persona("antonio", "sanchez", 81, "marron", "española");
+
+
+        console.log(miAbuelo.estatura2);
+
+        // el método se añade como si fuera una propiedad
+        // se utilia el this pq se cambiará por el valor del objeto que utilice esta funcion, 
+        // al no saber qué objeto será, se pone el this
+        Persona.prototype.cambiarColor = function() {
+           this.eyeColor = "negro";
+        };
+
+        console.log (miAbuelo.cambiarColor());
+
+    </script>
+ 
+</body>
+</html>

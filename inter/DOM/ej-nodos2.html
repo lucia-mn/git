@@ -1,0 +1,94 @@
+ <!DOCTYPE html>
+
+ <html lang="es">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nodos2</title>
+ </head>
+ 
+ <html>
+ <body> <!-- This is a comment node! -->
+    <p>Click the button get info about the body element's child nodes.</p>
+
+    <p id="demo">  </p>
+
+        <button onclick="myFunction(document.body.getElementsByTagName('p')[0])">Muestra 
+        los hijos del primer párrafo</button>
+
+        <button onclick="myFunction(document.body.getElementsByTagName('p')[1])">Muestra 
+        los hijos del segundo párrafo</button>
+
+        <button onclick="myFunction(document.body.getElementsByTagName('p')[2])">Muestra 
+        los hijos del tercer párrafo</button>
+
+        <p><strong>Note:</strong> Whitespace inside elements is considered as text, and text 
+        is considered as nodes. Comments are also considered as nodes.</p>
+
+        <script>
+
+        function myFunction(nodoP) {
+            // en vez de childNodes con children te salen sin los saltos de linea
+            var c = nodoP.childNodes;
+            var txt = "";
+            var i;
+
+            for (i = 0; i < c.length; i++) {
+                txt = txt + c[i].nodeName + "<br>";
+            }
+
+            document.getElementById("demo").innerHTML = txt;
+        }
+
+        let p = document.body.getElementByTagName("p")[1];
+
+        let atributo = parrafo2.getAttributeNode("id");
+        document.getElementById("demo4").innerHTML = nodeAtrib;
+
+
+        </script>
+
+    
+    <!-- 
+
+     ¿Qué ocurre con el nodo atributo “id”? 
+    no aparece como hijo dentro de <p>,
+    los atributos no son nodos hijos, sino parte del nodo elemento al que pertenecen
+    los atributos son nodos asociados a un elemento, no dentro de él.
+    Por eso, cuando recorres childNodes, solo obtienes:
+
+    Nodos de texto (#text)
+    Nodos de elemento (como <strong>)
+    Nodos de comentario (si los hay)
+
+    Pero no atributos
+
+
+     ¿Cómo se puede acceder al valor de ese atributo? 
+    usando la propiedad diercta .id
+    let valor = nodoP.id;
+    console.log(valor);
+
+    usando el método getAttribute()
+    let valor = nodoP.getAttribute("id");
+    console.log(valor);
+
+
+     ¿Con qué número se identifica el tipo de nodo atributo? 
+    Con el 2.
+    nodeType === 2
+    const nodeAtrib = parrafo2.getAttributeNode("id");
+
+    nodeValue, es undefined, el valor del nodo de texto es el texto que contiene
+    nodeType, todos los nodos estan identificados por un tipo: elemento 1, atributo 2, texto 3, comentarios 8, etc.
+    nodeName, devuelve el nombre del nodo, la etiqueta en mayusculas
+
+    
+     ¿Con qué constante (cadena de caracteres) se identifica el tipo de nodo atributo? 
+    Node.ATTRIBUTE_NODE
+
+    -->
+    
+
+ </body>
+ </html>

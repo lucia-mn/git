@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arrays</h2>
+
+<p id="demo"></p>
+
+<script>
+const cars = [
+  "Saab",
+  "Volvo",
+  "BMW"
+];
+
+let posicion = prompt("Elige un número del 1 al 3",1);
+if (!isNaN(posicion) && posicion>=1 && posicion <=3){
+document.getElementById("demo").innerHTML = `Te voy a comprar un ${cars[posicion-1]} pero de viejo.`;
+}
+else{alert("Debes introducir un número entre 1 y 3")}
+</script>
+
+</body>
+</html>

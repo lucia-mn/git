@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - lucia</title>
+</head>
+
+<body>
+<html>
+    <head>
+        <title>Sample Document</title>
+    </head>
+
+    <h1>An HTML Document</h2>
+    <p>This is a <i>simple</i> document.</p>
+
+    <!-- Here is a button that invokes the uppercase(  ) function 	defined above. -->
+    <button onclick="crearnodo();">Click Me</button>
+
+    <!-- <p>Éste es un párrafo con una palabra <em>enfatizada</em> 
+    y otras aún <strong>más enfatizadas</strong>.</p> -->
+
+    <script>
+
+        /*
+        const p = document.createElement("p");
+        const node = document.createTextNode("Éste es un párrafo con una palabra ");
+        p.appendChild(node);
+
+        const  em = document.createElement("em");
+        const node2 = document.createTextNode(" enfatizada ");
+        em.appendChild(node2);
+        
+
+        const p2 = document.createElement("p");
+        const node3 = document.createTextNode(" y otras aún ");
+        p2.appendChild(node3);
+
+        const strong = document.createElement("strong");
+        const node4 = document.createTextNode(" más enfatizadas");
+        strong.appendChild(node4);
+
+        const p3 = document.createElement("p");
+        const node5 = document.createTextNode(".");
+        p3.appendChild(node5);
+
+        body.appendChild(p, em, p2, strong, p3);
+        */
+
+        const p = document.createElement("p");
+        const em = document.createElement("em");
+        const strong = document.createElement("strong");
+        const t1 = document.createTextNode("Éste es un párrafo con una palabra ");
+        const t2 = document.createTextNode(" enfatizada ");
+        const t3 = document.createTextNode(" y otras aún ");
+        const t4 = document.createTextNode(" más enfatizadas");
+        const t5 = document.createTextNode(".");
+
+        p.appendChild(t1);
+        em.appendChild(t2);
+        p.appendChild(em);
+        p.appendChild(t3);
+        strong.appendChild(t4);
+        p.appendChild(strong);
+        p.appendChild(t5);
+
+        document.body.appendChild(p);
+
+
+        /*
+        p.appendChild(t1);
+        p.appendChild(em);
+        p.appendChild(t3);
+        p.appendChild(strong);
+        p.appendChild(t5);
+        
+        em.appendChild(t2)
+        strong.appendChild(t4)
+
+
+        const parrafo = p;
+        const padreFinal = document.body;
+
+        // lista de hijos de padre, sin contar con los nodos de salto de linea
+        const listaHijos = padreFinal.children;
+        const hijoExistente = listaHijos[0];
+
+        padreFinal.insertBefore(parrafo, hijoExistente);
+        */
+
+    </script>
+ 
+</body>
+</html>

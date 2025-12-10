@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        
+        function sonParseables(n1, n2) {
+        n1 = parseInt(n1);
+        n2 = parseInt(n2);
+
+        if (!isNaN(n1) && !isNaN(n2)) {
+            return [n1, n2];
+        } else {
+            return false;
+        }
+        }
+
+        
+        let sumar = (a, b) => a + b;
+        let multiplicar = (a, b) => a * b;
+
+        
+        let num1 = prompt("primer número: ");
+        let num2 = prompt("segundo número: ");
+
+        let numeros = sonParseables(num1, num2);
+
+        let operacion = prompt(`Elige "a" sumar o "b" dividir`);
+
+        if (operacion !== "a" && operacion !== "b") {
+            alert(error);
+
+        } else {
+            let resultado;
+
+            switch (operacion) {
+            case "a":
+                resultado = sumar(numeros[0], numeros[1]);
+                document.getElementById("resultado").innerHTML = `La suma es: ${resultado}`;
+                break;
+
+            case "b":
+                resultado = multiplicar(numeros[0], numeros[1]);
+                document.getElementById("resultado").innerHTML = `La multiplicación es: ${resultado}`;
+                break;
+            }
+        }
+
+    </script>
+
+</body>
+</html>

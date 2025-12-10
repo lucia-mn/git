@@ -1,0 +1,49 @@
+#tabla {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  border: 0.8px solid #12a1c4;
+}
+
+
+/* encabezado */
+/* .encabezado tr */
+thead tr {
+  background-color: #80f3bb;
+  color: #fff;
+}
+
+td, th, tr {
+  border-collapse: collapse;
+  border: 0.8px solid #12a1c4;
+}
+
+
+/* caption */
+/* #tabla caption */
+caption {
+  caption-side: top;        
+  text-align: center;      
+  font-weight: bold;      
+  font-size: 1.5em;         
+  color: #12a1c4;         
+  padding: 10px;          
+  background-color: #e9f7f9;      
+}
+
+/* calendario 2 */
+td:hover { 
+  background-color: #12a1c4; 
+  color: #fff;
+}
+
+.flechas { 
+  text-align: center; 
+  margin: 10px; 
+}
+
+select, button { 
+  margin: 0 5px; 
+}
+
+

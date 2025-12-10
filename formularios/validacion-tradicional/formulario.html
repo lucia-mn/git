@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Validación Tradicional</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Formulario de Registro</h1>
+
+    <!-- Uso tradicional: onsubmit -->
+    <!-- no quiero que html5 me lo valide con la mía en js -->
+    <form id="miFormulario" onsubmit="return validarFormulario();" novalidate>
+
+        <!-- Nombre -->
+        <!-- lo qu eno tenga name en un formulario no se manda -->
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        <!-- se muestran los mensajes de error -->
+        <span class="error" id="errorNombre"></span>
+
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <span class="error" id="errorEmail"></span>
+
+        <!-- Edad -->
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad">
+        <span class="error" id="errorEdad"></span>
+
+        <!-- Género -->
+        <p>Género:</p>
+        <label><input type="radio" name="genero" value="hombre"> Hombre</label>
+        <label><input type="radio" name="genero" value="mujer"> Mujer</label>
+        <label><input type="radio" name="genero" value="otro"> Otro</label>
+        <span class="error" id="errorGenero"></span>
+
+        <!-- Aficiones -->
+        <p>Aficiones:</p>
+        <label><input type="checkbox" name="aficiones" value="lectura"> Lectura</label>
+        <label><input type="checkbox" name="aficiones" value="musica"> Música</label>
+        <label><input type="checkbox" name="aficiones" value="deportes"> Deportes</label>
+        <label><input type="checkbox" name="aficiones" value="videojuegos"> Videojuegos</label>
+        <span class="error" id="errorAficiones"></span>
+
+        <!-- Ciudad -->
+        <label for="ciudad">Ciudad:</label>
+        <select id="ciudad" name="ciudad">
+            <option value="">Selecciona…</option>
+            <option value="madrid">Madrid</option>
+            <option value="barcelona">Barcelona</option>
+            <option value="valencia">Valencia</option>
+            <option value="sevilla">Sevilla</option>
+            <option value="otra">Otra</option>
+        </select>
+        <span class="error" id="errorCiudad"></span>
+
+        <!-- Botones -->
+        <button type="submit">Enviar</button>
+        <button type="reset">Restablecer</button>
+
+    </form>
+
+    <script src="validacion.js"></script>
+</body>
+</html>

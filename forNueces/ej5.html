@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+    <html>
+        <body>
+            <p id="demo"></p>
+
+            <script>
+                const cars = ["BMW", "Volvo", "Mini"];
+                let text = "";
+                for (let x in cars) {
+                text += x + " "+ cars[x] +"<br>";
+                }
+
+                document.getElementById("demo").innerHTML = text;
+            </script>
+        </body>
+    </html>

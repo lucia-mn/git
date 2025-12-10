@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>JavaScript For Of Loop</h2>
+    <p>The for of statement loops through the values of any iterable object:</p>
+
+    <p id="demo"></p>
+
+        <script>
+            const cars = ["BMW", "Volvo", "Mini", "Renault", "Seat", "Tesla", "Citroën"];
+
+            //array.length me indica la cantidad de elementos que tiene un array
+
+            // con un do-while también se podría ya que se ejecuta y luego comprueba,
+            // así que si estuviera el array vacío con solo el while no se ejecutaría
+
+            // con while
+            let i = 0;
+            let text1 = "";
+            while (i < cars.length) {
+            text1 += cars[i] + "<br>";
+            i++;
+            }
+
+            document.getElementById("demo").innerHTML = text1;
+        </script>
+
+</body>
+</html>

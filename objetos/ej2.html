@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>JavaScript Objects</h2>
+
+    <p>Creating a JavaScript Object:</p>
+    <p id="demo"></p>
+
+    <script>
+        const person = {firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue"};
+        
+        document.getElementById("demo").innerHTML = person.firstName + " is " + person.age + " years old.";
+
+         //cuando defines un valor a una propiedad que no existe, esa propiedad se le añade un objeto automáticamnete   
+        person.estatura = 170;
+        person.peso = 70;
+
+        document.getElementById("demo").innerHTML = person.firstName + " is " + person.age + " years old." +
+            " Tiene una estatura de " + person.estatura + " y un peso de " + person.peso;
+
+        //shift + alt + f = tabular todo
+    </script>
+
+</body>
+</html>

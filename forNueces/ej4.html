@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+    <html>
+        <body>
+            <h2>JavaScript For In Loop</h2>
+            <p>The for in statement loops through the properties of an object:</p>
+            <p id="demo"></p>
+
+            <script>
+                const person = {fname:"John", lname:"Doe", age:25};
+                let txt = "";
+                for (let x in person) {
+                txt += person[x] + " ";
+                }
+
+                document.getElementById("demo").innerHTML = txt;
+
+                // el for in sí que funciona con objetos no iterables, ya que coge la clave
+                // en la x tengo el nombre de la propiedad, no su valor
+                // con la x se accede al valor del objeto
+            </script>
+        </body>
+    </html>
