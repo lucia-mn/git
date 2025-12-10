@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tema 5 - act 4 - calculadora</title>
+    <!-- lucia mendiola -->
+</head>
+
+<body>
+
+    <table>
+        <tbody>
+            <tr>
+            <td id="n1">1</td>
+            <td id="n2">2</td>
+            <td id="n3">3</td>
+            </tr>
+
+            <tr>
+            <td id="n4">4</td>
+            <td id="n5">5</td>
+            <td id="n6">6</td>
+            </tr>
+
+            <tr>
+            <td id="n7">7</td>
+            <td id="n8">8</td>
+            <td id="n9">9</td>
+            </tr>
+
+            <tr>
+            <td id="n0">0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p id="demo"></p>
+
+
+    <script>
+
+         function mostrar() {
+
+            const salida = document.getElementById("demo");
+            salida.innerHTML = this.innerHTML;
+        }
+
+        // function mostrar0() {
+
+        //     const salida = document.getElementById("demo");
+        //     salida.innerHTML = document.getElementById("n0").innerHTML;
+        // }
+
+        // function mostrar1() {
+
+        //     const salida = document.getElementById("demo");
+        //     salida.innerHTML = document.getElementById("n1").innerHTML;
+        // }
+
+        // function mostrar2() {
+
+        //     const salida = document.getElementById("demo");
+        //     salida.innerHTML = document.getElementById("n2").innerHTML;
+        // }
+
+        // function mostrar3() {
+
+        //     const salida = document.getElementById("demo");
+        //     salida.innerHTML = document.getElementById("n3").innerHTML;
+        // }
+
+        // function mostrar4() {
+
+        //     const salida = document.getElementById("demo");
+        //     salida.innerHTML = document.getElementById("n4").innerHTML;
+        // }
+
+        // function mostrar5() {
+
+        //     const salida = document.getElementById("demo");
+        //     salida.innerHTML = document.getElementById("n5").innerHTML;
+        // }
+
+        // function mostrar6() {
+
+        //     const salida = document.getElementById("demo");
+        //     salida.innerHTML = document.getElementById("n6").innerHTML;
+        // }
+
+        // function mostrar7() {
+
+        //     const salida = document.getElementById("demo");
+        //     salida.innerHTML = document.getElementById("n7").innerHTML;
+        // }
+
+        // function mostrar8() {
+
+        //     const salida = document.getElementById("demo");
+        //     salida.innerHTML = document.getElementById("n8").innerHTML;
+        // }
+
+        // function mostrar9() {
+
+        //     const salida = document.getElementById("demo");
+        //     salida.innerHTML = document.getElementById("n9").innerHTML;
+        // }
+
+
+        // document.getElementById("n0").onclick = mostrar;
+
+        // meter tu funcion en una funcion, ya que no le puedes pasar solo el nombre, hay que pasar la definicion de la funcion ()
+        // function() {myFunction(p, p1)};
+        document.getElementById("n0").addEventListener("click", mostrar);
+        document.getElementById("n1").addEventListener("click", mostrar);
+        document.getElementById("n2").addEventListener("click", mostrar);
+        document.getElementById("n3").addEventListener("click", mostrar);
+        document.getElementById("n4").addEventListener("click", mostrar);
+        document.getElementById("n5").addEventListener("click", mostrar);
+        document.getElementById("n6").addEventListener("click", mostrar);
+        document.getElementById("n7").addEventListener("click", mostrar);
+        document.getElementById("n8").addEventListener("click", mostrar);
+        document.getElementById("n9").addEventListener("click", mostrar);
+
+    </script>
+
+</body>
+</html>

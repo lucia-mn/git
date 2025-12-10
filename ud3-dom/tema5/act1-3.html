@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ej 1, 2 y 3 - coordenadas click</title>
+    <!-- lucia mendiola naharro -->
+</head>
+<body>
+
+    <h2>Pulsa en cualquier lado de la pantalla para ver las coordenadas</h2>
+    <h3>Pulsa una tecla para ver su código unicode</h3>
+    <p id="demo"></p>
+
+    <script>
+
+        function clickRaton(elevento) {
+
+            const evento = elevento;
+            const X = evento.clientX;
+            const Y = evento.clientY;
+
+            alert("Has pulsadoa aquí: " + X + ", " + Y);
+        }
+
+        // document.onclick = clickRaton;
+        document.addEventListener("click", clickRaton);
+
+
+
+        // 2
+        function ventana(elevento) {
+            document.getElementById("demo").innerHTML= elevento.screenX + ", " + elevento.screenY;
+        }
+
+        document.addEventListener("mousemove", ventana);
+
+
+        // 3
+        function tecla(evento) {
+            const codigo = evento.keyCode;  
+            const letra = evento.key;   
+
+            document.getElementById("demo").innerHTML = letra + ": cod.unicode = " + codigo;
+        }
+
+        document.addEventListener("keydown", tecla);
+
+    </script>
+
+</body>
+</html>

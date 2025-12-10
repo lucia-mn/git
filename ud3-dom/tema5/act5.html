@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>act 5 - dia siguiente</title>
+    <!-- lucia mendiola naharro -->
+</head>
+
+<body>
+    <h2>Calcular el día siguiente al introducido</h2>
+    <p id="demo"></p>
+
+    <p>Día: </p> <input type="number" id="dia" size="40"><br>
+    <p>Mes: </p> <input type="number" id="mes" size="40"><br>
+    <p>Año: </p> <input type="number" id="anio" size="40"><br><br>
+
+    <button id="boton" name="boton">Crear fecha</button>
+
+    <script>
+
+        function calcularFecha() {
+
+            const dia = parseInt(document.getElementById("dia").value);
+            const mes = parseInt(document.getElementById("mes").value);
+            const anio = parseInt(document.getElementById("anio").value);
+
+            const fecha = new Date(anio, mes - 1, dia + 1);
+            document.getElementById("demo").innerHTML = fecha;
+        }
+
+        document.getElementById("boton").addEventListener("click", calcularFecha);
+
+    </script>
+    
+</body>
+</html>

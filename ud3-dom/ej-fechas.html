@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fechas</title>
+</head>
+<body>
+
+    <h2>Ejercicios Fechas</h2>
+    <p id="demo"></p> 
+
+    <script>
+        // 1)
+        const fecha = new Date();
+
+        // 2)
+        document.getElementById("demo").textContent = fecha.toString();
+
+        // 3)
+        console.log("hoy es:" + fecha);
+
+        // 4)
+        const texto = fecha.toDateString();
+        console.log("la fecha en texto es: " + texto);
+
+        // 5)
+        const ms = fecha.getTime();
+        console.log("han pasado: " + ms + " ms");
+
+        // 6)
+        const cumpleanios = new Date(2003, 6, 9);
+        const cumple = new Date("2003-07-09");
+
+        // 7)
+        const pasar = fecha.getFullYear() - cumple.getFullYear();
+        console.log("han pasado: " + pasar + " años");
+
+        // 8)
+        const dif = fecha - cumple;
+        const dias = dif / (1000 * 60 * 60 * 24);
+        console.log("han pasado: " + dias + " días"); 
+
+        // 9)
+        const meses = (fecha.getFullYear() - cumple.getFullYear()) * 12 +
+        (fecha.getMonth() - cumple.getMonth());
+        console.log("han pasado: " + meses + " meses");
+
+        // 10)
+        const mili = fecha.getTime - cumple.getTime;
+        console.log("han pasado: " + mili + " ms desde mi cumpleaños");
+
+
+        //
+        const actual = new Date();
+        const cumple1 = new Date(2003, 6, 9);
+        const diaPago = new Date(2025,10,31);
+
+        // nov con 30 dias
+        const diaPago1 = new Date(2025, 10, 0);
+
+        // ultimo dia de febrero de 2024
+        // marzo es el 2
+        const diaPago2 = new Date(2024, 2, 0);
+
+        // 1 dic 2025
+
+
+
+    </script>
+
+</body>
+</html>

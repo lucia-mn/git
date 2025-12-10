@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>intercambio2 nodos</title>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+        <td id="n1">1</td>
+        <td id="n2">2</td>
+        <td id="n3">3</td>
+        </tr>
+
+        <tr>
+        <td id="n4">4</td>
+        <td id="n5">5</td>
+        <td id="n6">6</td>
+        </tr>
+
+        <tr>
+        <td id="n7">7</td>
+        <td id="n8">8</td>
+        <td id="n9">9</td>
+        </tr>
+    </table>
+
+
+    <script>
+
+        function intercambio(o, d) {
+
+            const origen = document.getElementById(o);
+            const destino = document.getElementById(d);
+            const nT = document.createElement("td");
+
+
+            origen.replaceWith(nT);
+            destino.replaceWith(origen);
+            nT.replaceWith(destino);
+        }
+
+        intercambio("n1", "n7");
+
+    </script>
+
+</body>
+</html>

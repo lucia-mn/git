@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcianitos C1</title>
+</head>
+<body>
+
+    <label for="m1">Marciano 1: </label>
+    <input type="text" id="m1">
+    <button id="botonE">Enviar</button> <br><br>
+
+    <label for="m2">Marciano 2: </label>
+    <input type="text" id="m2" readonly>
+    <button id="botonR">Recibir</button>
+
+    <script>
+
+        function obtenerMensajes() {
+            let mensajes = localStorage.getItem("mensajes");
+            return mensajes ? JSON.parse(mensajes) : [];
+        }
+
+        function guardarMensajes(mensajes) {
+            localStorage.setItem("mensajes", JSON.stringify(mensajes));
+        }
+
+      
+        document.getElementById("botonE").addEventListener("click", function() {
+            let mensaje = document.getElementById("m1").value.trim();
+            if (mensaje === "") return; 
+
+            let mensajes = obtenerMensajes();
+            mensajes.push(mensaje); 
+            guardarMensajes(mensajes);
+
+            document.getElementById("m1").value = "";
+            alert("Mensaje enviado ");
+        });
+
+
+        document.getElementById("botonR").addEventListener("click", function() {
+            let mensajes = obtenerMensajes();
+
+            if (mensajes.length === 0) {
+                document.getElementById("m2").value = "Sin mensajes :(";
+                return;
+            }
+
+            let mensajeAntiguo = mensajes.shift();
+            guardarMensajes(mensajes); 
+
+            document.getElementById("m2").value = mensajeAntiguo;
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patricio</title>
+    <!-- lucia mendiola -->
+    </head>
+
+<body>
+    <h2>Patricio</h2>
+
+    <table id="tabla">
+        <tbody>
+            <tr>
+                <td id="n1"><img src="img/fila-1-columna-2.jpg" alt="1"></td>
+                <td id="n2"><img src="img/fila-2-columna-1.jpg" alt="2"></td>
+                <td id="n3"><img src="img/fila-1-columna-3.jpg" alt="3"></td>
+            </tr>
+            <tr>
+                <td id="n4"><img src="img/fila-1-columna-1.jpg" alt="4"></td>
+                <td id="blanco"></td>
+                <td id="n6"><img src="img/fila-3-columna-2.jpg" alt="6"></td>
+            </tr>
+            <tr>
+                <td id="n7"><img src="img/fila-3-columna-1.jpg" alt="7"></td>
+                <td id="n8"><img src="img/fila-2-columna-3.jpg" alt="8"></td>
+                <td id="n9"><img src="img/fila-2-columna-2.jpg" alt="9"></td>
+            </tr>
+        </tbody>
+    </table><br>
+
+    <button id="subir">Subir</button>
+    <button id="bajar">Bajar</button>
+    <button id="izquierda">Izquierda</button>
+    <button id="derecha">Derecha</button>
+
+    <script>
+
+        const blanco = document.getElementById("blanco");
+
+        const fila = blanco.parentElement;
+        const celdaIzq = blanco.previousElementSibling;
+        const celdaDer = blanco.nextElementSibling;
+        const filaArriba = fila.previousElementSibling;
+        const filaAbajo = fila.nextElementSibling;
+
+        // intercambio
+        fila.replaceChild(celdaIzq, blanco);
+        fila.insertBefore(blacno, celdaIzq);
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

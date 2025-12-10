@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- lucia mendiola naharro -->
+
+    <!-- la definicion de un funcion es sin parentesis!!! -->
+    <!-- cuando sí que necesito parentesis, por los parametros, hay que envolver la funcion en otra funcion anonima, 
+    por ejemplo una f. flecha -->
+</head>
+<body>
+
+    <label for="nombre">Escribe tu nombre: </label>
+    <input type="text" id="nombre"></input>
+    <button id="boton">Leer nombre</button>
+
+    <script>
+
+        // cookies
+        // document.cookie="miCookie="
+
+        // getCookie
+        function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+        }
+
+        // setCookie
+        function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        // leer cookie
+        function readCookie(name) {
+            let nameEQ = name + "=";
+            let ca = document.cookie.split(';');
+
+            for(let i=0;i < ca.length;i++) {
+                let c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }
+            return null;
+        }
+
+        // crear cookie
+        function createCookie(name,value,days) {
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime()+(days*24*60*60*1000));
+                let expires = "; expires="+date.toGMTString();
+
+            } else { 
+                let expires = "";
+                document.cookie = name+"="+value+expires+"; path=/"; 
+            }
+        }
+
+        // eliminar cookie
+        function eraseCookie(name) {
+            createCookie(name,"",-1);
+        }
+
+
+
+        /* let campoNombre = document.getElementById("nombre");
+        let valorNombre = campoNombre.value;
+        console.log(valorNombre); */
+        // no muestra nada pq no hemos recogido el valor el nombre, solo está ahí
+        // habría que ponerle un botón con un gestor de eventos
+
+        
+        let boton = document.getElementById("boton");
+        boton.addEventListener("click", leerDatos);
+
+        let usuarios = [];
+
+        function leerDatos() {
+
+            // al principio del todo comprobamos si existe una cookie o no
+            // si la puedes leer existe, si no pues no
+            // getCookie si la cadena exite devuleve el valor del array entero, si no devuelve una cadena vacía
+
+            // leo la cookie, si existe la paso a un objeto de js (con parse)
+            let usersJSON;
+
+            if(usersJSON = getCookie("miUsers")) {
+                // devuelve un array 
+                usuarios = JSON.parse(usersJSON);}
+        
+            let campoNombre = document.getElementById("nombre"); // leo el valor del input y lo muestro en una variable
+            let valorNombre = campoNombre.value;
+            console.log(valorNombre);
+
+            if(existeUsuarioEnArray(valorNombre)) saludar(valorNombre);
+            else (anyadeUsaurioArray(valorNombre));
+
+            
+            // comprobar si ya hay una cookie guardada que tenga el nombre de usuario. si ya hay una
+            // la comparamos con la que ya hay. si coincide -> saludo, si no -> no es el mismo usuario
+
+            /* 
+            let cookieGuardada = getCookie("nombreUsuario");
+
+            if (cookieGuardada == valorNombre) {
+                alert("Bienvenido/a " + valorNombre);
+            }
+
+            setCookie("nombreUsuario", valorNombre, 365);
+            */
+
+            // el nombre de la cookie es una cad. de caracteres
+
+            // para guardar el nombre de todos los usuarios, vamos a convertir un array de cookies a string con json
+            // con json se coge un objeto de js y se transforma en una cad. de caracteres
+            // cuando obtengamos la cookie obtendremos todo el array en formato cadena, que habrá que pasarlo otra vez a formato js
+
+            // 1 paso para 
+            usersJSON = JSON.stringify(usuarios);
+            setCookies("miUsers", usersJSON, 365);
+        }
+        
+
+        const arrayUsuarios = [];
+        function leerArray(array, nombre) {
+
+            for(let i = 0; i < array.length; i++) {
+                const a = array[i];
+                array.push(a);
+            }
+
+            return array;
+        }
+
+        // function anyadeUsuario
+        // deberes: como convertir obj de js a texto y al revés
+        // transformar el array en uno de caracteres y meterlo en una cookie
+
+        function existeUsuarioEnArray(nombre) {
+            return usuarios.includes(nombre);
+        }
+
+        function saludar(nombre) {
+            alert("Bienvenido/a " + nombre);
+        }
+
+        function anyadeUsuarioArray(nombre) {
+            usuarios.push(nombre);
+        }
+
+    </script>
+    
+</body>
+</html>

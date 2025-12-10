@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARCIANITOS A</title>
+    <!-- lucia mendiola naharro -->
+</head>
+
+<body>
+
+    <label for="nombre">Marciano 1: </label>
+    <input type="text" id="m1"></input>
+    <button id="botonE">Enviar</button> <br><br>
+
+    <label for="nombre">Marciano 2: </label>
+    <input type="text" id="m2"></input>
+    <button id="botonR">Recibir</button>
+
+
+    <script>
+        // getCookie
+        function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+        }
+
+        // setCookie
+        function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        // leer cookie
+        function readCookie(name) {
+            let nameEQ = name + "=";
+            let ca = document.cookie.split(';');
+
+            for(let i=0;i < ca.length;i++) {
+                let c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }
+            return null;
+        }
+
+        // crear cookie
+        function createCookie(name,value,days) {
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime()+(days*24*60*60*1000));
+                let expires = "; expires="+date.toGMTString();
+
+            } else { 
+                let expires = "";
+                document.cookie = name+"="+value+expires+"; path=/"; 
+            }
+        }
+
+        // eliminar cookie
+        function eraseCookie(name) {
+            createCookie(name,"",-1);
+        }
+
+
+        let botonEnviar = document.getElementById("botonE");
+        botonEnviar.addEventListener("click", enviar);
+
+        let botonRecibir = document.getElementById("botonR");
+        botonRecibir.addEventListener("click", recibir);
+
+
+        function enviar() {
+            let mensaje = document.getElementById("m1").value;
+
+            if (mensaje.trim() != "") {
+                
+                setCookie("mensajeM", mensaje);
+                document.getElementById("m1").value = "";
+            }
+        }
+
+        function recibir() {
+            let mensaje = getCookie("mensajeM");
+
+            if (mensaje == "") {
+                document.getElementById("m2").value = "Sin mensajes :(";
+
+            } else {
+                document.getElementById("m2").value = mensaje;
+                deleteCookie("mensajeM");
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patricio</title>
+    <!-- lucia mendiola -->
+    </head>
+
+<body>
+    <h2>Patricio</h2>
+
+    <table id="tabla">
+        <tbody>
+            <tr>
+                <td id="n1"><img src="img/fila-1-columna-2.jpg" alt="1"></td>
+                <td id="n2"><img src="img/fila-2-columna-1.jpg" alt="2"></td>
+                <td id="n3"><img src="img/fila-1-columna-3.jpg" alt="3"></td>
+            </tr>
+            <tr>
+                <td id="n4"><img src="img/fila-1-columna-1.jpg" alt="4"></td>
+                <td id="blanco"></td>
+                <td id="n6"><img src="img/fila-3-columna-2.jpg" alt="6"></td>
+            </tr>
+            <tr>
+                <td id="n7"><img src="img/fila-3-columna-1.jpg" alt="7"></td>
+                <td id="n8"><img src="img/fila-2-columna-3.jpg" alt="8"></td>
+                <td id="n9"><img src="img/fila-2-columna-2.jpg" alt="9"></td>
+            </tr>
+        </tbody>
+    </table><br>
+
+    <button id="subir">Subir</button>
+    <button id="bajar">Bajar</button>
+    <button id="izquierda">Izquierda</button>
+    <button id="derecha">Derecha</button>
+
+    <script>
+
+        const tabla = document.getElementById("tabla");
+        const subir = document.getElementById("subir");
+        const bajar = document.getElementById("bajar");
+        const izquierda = document.getElementById("izquierda");
+        const derecha = document.getElementById("derecha");
+
+        
+        function blanco() {
+            return document.getElementById("blanco");
+        }
+
+        function intercambio(origen, destino) {
+            const nT = document.createElement("td");
+            origen.replaceWith(nT);
+            destino.replaceWith(origen);
+            nT.replaceWith(destino);
+        }
+
+        function celdaIzq(blanco) {
+            return blanco.previousElementSibling;
+        }
+
+        function celdaDer(blanco) {
+            return blanco.nextElementSibling;
+        }
+
+        function celdaArriba(blanco) {
+            const fila = blanco.parentElement;
+            const filaArriba = fila.previousElementSibling;
+            if (!filaArriba) return null;
+            return filaArriba.children[blanco.cellIndex];
+        }
+
+        function celdaAbajo(blanco) {
+            const fila = blanco.parentElement;
+            const filaAbajo = fila.nextElementSibling;
+            if (!filaAbajo) return null;
+            return filaAbajo.children[blanco.cellIndex];
+        }
+
+        
+        // version 1
+        subir.addEventListener("click", function() {
+            const blanco = blanco();
+            const inter = celdaArriba(blanco);
+            if (inter) intercambio(blanco, inter);
+        });
+
+        bajar.addEventListener("click", function() {
+            const blanco = blanco();
+            const inter = celdaAbajo(blanco);
+            if (inter) intercambio(blanco, inter);
+        });
+
+        izquierda.addEventListener("click", function() {
+            const blanco = blanco();
+            const inter = celdaIzq(blanco);
+            if (inter) intercambio(blanco, inter);
+        });
+
+        derecha.addEventListener("click", function() {
+            const blanco = blanco();
+            const inter = celdaDer(blanco);
+            if (inter) intercambio(blanco, inter);
+        });
+
+    </script>
+
+</body>
+</html>

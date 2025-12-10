@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARCIANITOS C1</title>
+    <!-- lucia mendiola naharro -->
+</head>
+
+<body>
+
+    <label for="nombre">Marciano 1: </label>
+    <input type="text" id="m1"></input>
+    <button id="botonE">Enviar</button> <br><br>
+
+    <label for="nombre">Marciano 2: </label>
+    <input type="text" id="m2"></input>
+    <button id="botonR">Recibir</button>
+
+    <!-- hacer un array para almacenar los mensaje y luego con push para guardar (m1) y un shift (m2)
+    mete por el final y saca por el principio -->
+
+
+    <script>
+        
+        localStorage.setItem("name", "John Doe");
+        localStorage.getItem("name");
+        sessionStorage.getItem("name");
+        sessionStorage.setItem("name", "John Doe");
+
+        /* for (i = 0; i < localStorage.length; i++) {
+            x = localStorage.key(i);
+            document.getElementById("demo").innerHTML += x;
+        } */
+
+        // crear 
+        /* function crear() {
+
+            localStorage.setItem("mytime", Date.now());
+            localStorage.setItem("myname", "John");
+            localStorage.setItem("myage", 36);
+        } */
+
+
+        let botonEnviar = document.getElementById("botonE");
+        botonEnviar.addEventListener("click", crear);
+
+        let botonRecibir = document.getElementById("botonR");
+        botonRecibir.addEventListener("click", mostrar);
+
+        function crear() {
+
+            let mensaje = document.getElementById("m1").value.trim();
+            if (mensaje === "") return; 
+
+            let mensajes = obtenerM();
+            mensajes.push(mensaje); 
+            guardarM(mensajes);
+
+            document.getElementById("m1").value = "";
+        }
+
+        function mostrar() {
+            
+            let mensajes = obtenerM();
+
+            if (mensajes.length === 0) {
+                document.getElementById("m2").value = "Sin mensajes :(";
+                return;
+            }
+
+            let mensajeAntiguo = mensajes.shift();
+            guardarM(mensajes); 
+
+            document.getElementById("m2").value = mensajeAntiguo;
+        }
+
+        function obtenerM() {
+            let mensajes = localStorage.getItem("mensajes");
+
+            if (mensajes) {
+                return JSON.parse(mensajes);
+            } else {
+                return [];
+            }
+        }
+
+        function guardarM(mensajes) {
+            localStorage.setItem("mensajes", JSON.stringify(mensajes));
+        }
+
+    </script>
+    
+</body>
+</html>
